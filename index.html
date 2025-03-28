@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Влад Кудрин - ML Инженер</title>
+    <style>
+        :root {
+            --primary-color: #e2e8f0;
+            --secondary-color: #a0aec0;
+            --accent-color: #60a5fa;
+            --background-color: #1a202c;
+            --card-background: #2d3748;
+            --text-color: #e2e8f0;
+            --text-secondary: #a0aec0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            background-color: var(--card-background);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section {
+            background-color: var(--card-background);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .section-title {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .experience-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.6rem;
+        }
+
+        .experience-date {
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+        }
+
+        .experience-role {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-category {
+            margin-bottom: 1rem;
+        }
+
+        .skill-category h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        .skill-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .link-item {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            background-color: rgba(96, 165, 250, 0.1);
+            font-size: 1.2rem;
+        }
+
+        .link-item:hover {
+            color: var(--primary-color);
+            background-color: rgba(96, 165, 250, 0.2);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            header {
+                padding: 1rem 0;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+        }
+
+        .language-btn {
+            background-color: var(--card-background);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .language-btn:hover {
+            background-color: rgba(96, 165, 250, 0.1);
+        }
+
+        .language-content {
+            display: none;
+        }
+
+        .language-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <button class="language-btn" onclick="switchLanguage('ru')">RU</button>
+        <button class="language-btn" onclick="switchLanguage('en')">EN</button>
+    </div>
+
+    <!-- Russian version -->
+    <div class="language-content active" lang="ru">
+        <header>
+            <h1>Влад Кудрин</h1>
+            <h2>20 лет</h2>
+            <h3>ML Инженер</h3>
+        </header>
+
+        <div class="container">
+            <section class="section">
+                <h2 class="section-title">💼 Опыт работы</h2>
+                <div class="experience-item">
+                    <div class="experience-title">🏢 Petrel AI (Алматы)</div>
+                    <div class="experience-date">Февраль 2022 - Март 2025 (3 года 2 месяца)</div>
+                    <div class="experience-role">🤖 ML-Инженер</div>
+                    <ul>
+                        <li>🤝 Создание мультиагентных систем для бизнеса</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">🎯 Навыки</h2>
+                <ul>
+                    <li>👅 Работа с LLM</li>
+                    <li>🤖 Создание мультиагентных систем</li>
+                    <li>🎓 Файн-тюнинг AI моделей</li>
+                    <li>🗄️ Работа с базами данных</li>
+                    <li>✍️ Инжиниринг промптов</li>
+                    <li>🚀 Локальное развертывание</li>
+                    <li>🔌 Работа с REST API и микросервисами</li>
+                    <li>👥 Работа в команде</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">🛠️ Технологии</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>💻 Программирование</h3>
+                        <ul class="skill-list">
+                            <li>Python</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🗄️ Базы данных</h3>
+                        <ul class="skill-list">
+                            <li>ChromaDB</li>
+                            <li>FAISS</li>
+                            <li>PostgreSQL</li>
+                            <li>MongoDB</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🤖 Агенты</h3>
+                        <ul class="skill-list">
+                            <li>LangChain</li>
+                            <li>LangGraph</li>
+                            <li>LangFuse</li>
+                            <li>Pydantic AI</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🧠 Глубокое обучение</h3>
+                        <ul class="skill-list">
+                            <li>PyTorch</li>
+                            <li>Unsloth</li>
+                            <li>Transformers</li>
+                            <li>Sentence Transformers</li>
+                            <li>PEFT</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>⚙️ Бэкенд и развертывание</h3>
+                        <ul class="skill-list">
+                            <li>FastAPI</li>
+                            <li>vLLM</li>
+                            <li>Llama-cpp</li>
+                            <li>Ollama</li>
+                            <li>Docker</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🤖 Семейства LLM</h3>
+                        <ul class="skill-list">
+                            <li>DeepSeek</li>
+                            <li>GPT</li>
+                            <li>Gemini</li>
+                            <li>Llama</li>
+                            <li>Mistral</li>
+                            <li>Qwen</li>
+                            <li>Claude</li>
+                            <li>Gemma</li>
+                            <li>BERT</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🔧 Другие технологии</h3>
+                        <ul class="skill-list">
+                            <li>TTS</li>
+                            <li>STT</li>
+                            <li>Image Text To Text</li>
+                            <li>Pandas</li>
+                            <li>OpenAI API</li>
+                            <li>Hugging Face</li>
+                            <li>REST API</li>
+                            <li>Cursor IDE</li>
+                            <li>Git</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">🌐 Языки</h2>
+                <ul>
+                    <li>🇷🇺 Русский (Родной)</li>
+                    <li>🇬🇧 Английский (Свободный)</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">✨ Дополнительно</h2>
+                <ul>
+                    <li>📚 Постоянно слежу за новостями и мета-разработками в AI</li>
+                    <li>📄 Читаю научные статьи на arxiv</li>
+                    <li>📁 Вношу вклад в проекты с исходным кодом</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">🔗 Ссылки</h2>
+                <div class="links">
+                    <a href="https://github.com/vladlen32230" class="link-item">GitHub</a>
+                    <a href="https://gitlab.com/vladlen32230" class="link-item">GitLab</a>
+                    <a href="https://www.kaggle.com/vladlen32230" class="link-item">Kaggle</a>
+                    <a href="https://leetcode.com/u/vladlen32230/" class="link-item">LeetCode</a>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">📞 Контакты</h2>
+                <div class="contact-info">
+                    <div class="contact-item">📱 +79630742912</div>
+                    <div class="contact-item">💬 @vladlen32230 (Telegram)</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- English version -->
+    <div class="language-content" lang="en">
+        <header>
+            <h1>Vlad Kudrin</h1>
+            <h2>20 years</h2>
+            <h3>ML Engineer</h3>
+        </header>
+
+        <div class="container">
+            <section class="section">
+                <h2 class="section-title">💼 Work Experience</h2>
+                <div class="experience-item">
+                    <div class="experience-title">🏢 Petrel AI (Almaty)</div>
+                    <div class="experience-date">February 2022 - March 2025 (3 years 2 months)</div>
+                    <div class="experience-role">🤖 ML-Engineer</div>
+                    <ul>
+                        <li>🤝 Creating multi agent systems for businesses</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">🎯 Skills</h2>
+                <ul>
+                    <li>👅 Working with LLMs</li>
+                    <li>🤖 Creating multi agent systems</li>
+                    <li>🎓 Fine tuning AI models</li>
+                    <li>🗄️ Working with databases</li>
+                    <li>✍️ Prompt engineering</li>
+                    <li>🚀 Local deployment</li>
+                    <li>🔌 Working with REST API and microservices</li>
+                    <li>👥 Working in a team</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">🛠️ Technologies</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>💻 Programming</h3>
+                        <ul class="skill-list">
+                            <li>Python</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🗄️ Databases</h3>
+                        <ul class="skill-list">
+                            <li>ChromaDB</li>
+                            <li>FAISS</li>
+                            <li>PostgreSQL</li>
+                            <li>MongoDB</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🤖 Agents</h3>
+                        <ul class="skill-list">
+                            <li>LangChain</li>
+                            <li>LangGraph</li>
+                            <li>LangFuse</li>
+                            <li>Pydantic AI</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🧠 Deep Learning</h3>
+                        <ul class="skill-list">
+                            <li>PyTorch</li>
+                            <li>Unsloth</li>
+                            <li>Transformers</li>
+                            <li>Sentence Transformers</li>
+                            <li>PEFT</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>⚙️ Backend & Deployment</h3>
+                        <ul class="skill-list">
+                            <li>FastAPI</li>
+                            <li>vLLM</li>
+                            <li>Llama-cpp</li>
+                            <li>Ollama</li>
+                            <li>Docker</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🤖 LLM Families</h3>
+                        <ul class="skill-list">
+                            <li>DeepSeek</li>
+                            <li>GPT</li>
+                            <li>Gemini</li>
+                            <li>Llama</li>
+                            <li>Mistral</li>
+                            <li>Qwen</li>
+                            <li>Claude</li>
+                            <li>Gemma</li>
+                            <li>BERT</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🔧 Other Technologies</h3>
+                        <ul class="skill-list">
+                            <li>TTS</li>
+                            <li>STT</li>
+                            <li>Image Text To Text</li>
+                            <li>Pandas</li>
+                            <li>OpenAI API</li>
+                            <li>Hugging Face</li>
+                            <li>REST API</li>
+                            <li>Cursor IDE</li>
+                            <li>Git</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">🌐 Languages</h2>
+                <ul>
+                    <li>🇷🇺 Russian (Native)</li>
+                    <li>🇬🇧 English (Fluent)</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">✨ Extra</h2>
+                <ul>
+                    <li>📚 Always staying up to date with recent meta and news in AI</li>
+                    <li>📄 Reading scientific papers on arxiv</li>
+                    <li>📁 Contributing to open source projects</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">🔗 Links</h2>
+                <div class="links">
+                    <a href="https://github.com/vladlen32230" class="link-item">GitHub</a>
+                    <a href="https://gitlab.com/vladlen32230" class="link-item">GitLab</a>
+                    <a href="https://www.kaggle.com/vladlen32230" class="link-item">Kaggle</a>
+                    <a href="https://leetcode.com/u/vladlen32230/" class="link-item">LeetCode</a>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">📞 Contact</h2>
+                <div class="contact-info">
+                    <div class="contact-item">📱 +79630742912</div>
+                    <div class="contact-item">💬 @vladlen32230 (Telegram)</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            document.documentElement.lang = lang;
+            const contents = document.querySelectorAll('.language-content');
+            contents.forEach(content => {
+                if (content.getAttribute('lang') === lang) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html> 
