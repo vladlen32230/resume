@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kudrin Vladislav - ML Engineer Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .language-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-left: 5px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .language-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        .language-btn.active {
+            background: #764ba2;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><polygon points="0,0 1000,0 1000,100"/></svg>');
+            opacity: 0.1;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header .title {
+            font-size: 1.5em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .job-duration {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .job-title {
+            font-weight: bold;
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+
+        .bracketed {
+            opacity: 0.6;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        li::before {
+            content: '▶';
+            color: #667eea;
+            position: absolute;
+            left: 0;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tech-category {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .tech-category h4 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .link-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #e0e7ff;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #667eea20 0%, #764ba220 100%);
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-toggle">
+            <button class="language-btn active" onclick="switchLanguage('en')">🇺🇸 EN</button>
+            <button class="language-btn" onclick="switchLanguage('ru')">🇷🇺 RU</button>
+        </div>
+
+        <div class="header">
+            <h1>Kudrin Vladislav</h1>
+            <div class="title">
+                <span class="lang-en">🤖 Machine Learning Engineer</span>
+                <span class="lang-ru hidden">🤖 Инженер машинного обучения</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Work Experience -->
+            <div class="section">
+                <h2>
+                    <span class="lang-en">💼 Work Experience</span>
+                    <span class="lang-ru hidden">💼 Опыт работы</span>
+                </h2>
+                
+                <div class="job-duration">
+                    <strong>Petrel AI <span class="bracketed lang-en">(B2B products)</span><span class="bracketed lang-ru hidden">(B2B продукты)</span> 📍 Almaty</strong><br>
+                    <span class="lang-en">February 2023 - April 2025 • 2 years 2 months</span>
+                    <span class="lang-ru hidden">Февраль 2023 - Апрель 2025 • 2 года 2 месяца</span>
+                </div>
+
+                <div class="job-title">
+                    <span class="lang-en"><h3>🐍 Python Intern<span class="bracketed">(4 months)</span></h3></span>
+                    <span class="lang-ru hidden"><h3>🐍 Python Стажер<span class="bracketed">(4 месяца)</span></h3></span>
+                </div>
+                <ul>
+                    <li class="lang-en">Code refactoring</li>
+                    <li class="lang-en">Small bug fixes</li>
+                    <li class="lang-en">Legacy rewriting</li>
+                    <li class="lang-ru hidden">Рефакторинг кода</li>
+                    <li class="lang-ru hidden">Исправление мелких багов</li>
+                    <li class="lang-ru hidden">Переписывание устаревшего кода</li>
+                </ul>
+
+                <div class="job-title">
+                    <span class="lang-en"><h3>🧠 ML Engineer<span class="bracketed">(1 year 10 months)</span></h3></span>
+                    <span class="lang-ru hidden"><h3>🧠 ML Инженер<span class="bracketed">(1 год 10 месяцев)</span></h3></span>
+                </div>
+                
+                <h4>
+                    <span class="lang-en">🚀 Examples:</span>
+                    <span class="lang-ru hidden">🚀 Примеры:</span>
+                </h4>
+                
+                <ul>
+                    <li class="lang-en"><span class="highlight">Chat bot</span> <span class="bracketed">(RAG + Chat agent)</span> <span class="bracketed">(~98% accuracy on answering right)</span> <span class="bracketed">(llama + chromadb)</span></li>
+                    <li class="lang-en"><span class="highlight">Text normalization</span> <span class="bracketed">(Few shot learning + RAG)</span> <span class="bracketed">(~88% on right mapping and ~97% for key-value)</span> <span class="bracketed">(qwen + chromadb)</span></li>
+                    <li class="lang-en"><span class="highlight">Commit reviewer</span> <span class="bracketed">(API Integration + Code agent)</span> <span class="bracketed">(~0.83 F1)</span> <span class="bracketed">(claude)</span></li>
+                    <li class="lang-en"><span class="highlight">AI tutor</span> <span class="bracketed">(TTS + STT + Image parsing + Internet search agent)</span> <span class="bracketed">(no metrics)</span> <span class="bracketed">(claude + llava + whisper + minimax audio)</span></li>
+                    <li class="lang-en"><span class="highlight">Spam detection</span> <span class="bracketed">(BERT fine tuning)</span> <span class="bracketed">(~0.99 F1 for NSFW, ~0.82 F1 for ad)</span> <span class="bracketed">(debert)</span></li>
+                    <li class="lang-en"><span class="highlight">HR Agent</span> <span class="bracketed">(API Integration + Document parsing + Scoring)</span> <span class="bracketed">(~0.71 F1 of right classification. mostly due to human factor)</span> <span class="bracketed">(claude + llava)</span></li>
+                    
+                    <li class="lang-ru hidden"><span class="highlight">Чат-бот</span> <span class="bracketed">(RAG + Чат агент)</span> <span class="bracketed">(~98% точность правильных ответов)</span> <span class="bracketed">(llama + chromadb)</span></li>
+                    <li class="lang-ru hidden"><span class="highlight">Нормализация текста</span> <span class="bracketed">(Few shot обучение + RAG)</span> <span class="bracketed">(~88% правильного сопоставления и ~97% для ключ-значение)</span> <span class="bracketed">(qwen + chromadb)</span></li>
+                    <li class="lang-ru hidden"><span class="highlight">Ревьюер коммитов</span> <span class="bracketed">(API интеграция + Код агент)</span> <span class="bracketed">(~0.83 F1)</span> <span class="bracketed">(claude)</span></li>
+                    <li class="lang-ru hidden"><span class="highlight">AI репетитор</span> <span class="bracketed">(TTS + STT + Парсинг изображений + Поисковый агент)</span> <span class="bracketed">(нет метрик)</span> <span class="bracketed">(claude + llava + whisper + minimax audio)</span></li>
+                    <li class="lang-ru hidden"><span class="highlight">Детекция спама</span> <span class="bracketed">(дообучение BERT)</span> <span class="bracketed">(~0.99 F1 для NSFW, ~0.82 F1 для рекламы)</span> <span class="bracketed">(debert)</span></li>
+                    <li class="lang-ru hidden"><span class="highlight">HR Агент</span> <span class="bracketed">(API интеграция + Парсинг документов + Скоринг)</span> <span class="bracketed">(~0.71 F1 правильной классификации, в основном из-за человеческого фактора)</span> <span class="bracketed">(claude + llava)</span></li>
+                </ul>
+            </div>
+
+            <!-- Education -->
+            <div class="section">
+                <h2>
+                    <span class="lang-en">🎓 Education</span>
+                    <span class="lang-ru hidden">🎓 Образование</span>
+                </h2>
+                <div class="job-duration">
+                    <strong>
+                        <span class="lang-en">Ural Federal University <span class="bracketed">(2021 - 2025)</span></span>
+                        <span class="lang-ru hidden">Уральский федеральный университет <span class="bracketed">(2021 - 2025)</span></span>
+                    </strong>
+                </div>
+                <ul>
+                    <li class="lang-en">Bachelor's degree in computer science</li>
+                    <li class="lang-en">Additional education in AI</li>
+                    <li class="lang-ru hidden">Степень бакалавра в области компьютерных наук</li>
+                    <li class="lang-ru hidden">Дополнительное образование в области ИИ</li>
+                </ul>
+            </div>
+
+            <!-- Languages -->
+            <div class="section">
+                <h2>
+                    <span class="lang-en">🌍 Languages</span>
+                    <span class="lang-ru hidden">🌍 Языки</span>
+                </h2>
+                <ul>
+                    <li class="lang-en">Russian <span class="bracketed">(native)</span></li>
+                    <li class="lang-en">English <span class="bracketed">(fluent)</span></li>
+                    <li class="lang-ru hidden">Русский <span class="bracketed">(родной)</span></li>
+                    <li class="lang-ru hidden">Английский <span class="bracketed">(свободно)</span></li>
+                </ul>
+            </div>
+
+            <!-- Skills -->
+            <div class="section">
+                <h2>
+                    <span class="lang-en">💪 Hard Skills</span>
+                    <span class="lang-ru hidden">💪 Технические навыки</span>
+                </h2>
+                <ul>
+                    <li class="lang-en">Creating agents</li>
+                    <li class="lang-en">Working with text generation, text2text, classification models</li>
+                    <li class="lang-en">Working with databases</li>
+                    <li class="lang-en">Fine tuning</li>
+                    <li class="lang-en">Prompt engineering</li>
+                    <li class="lang-en">Deployment</li>
+                    <li class="lang-en">Integrating with other services</li>
+                    
+                    <li class="lang-ru hidden">Создание агентов</li>
+                    <li class="lang-ru hidden">Работа с моделями генерации текста, text2text, классификации</li>
+                    <li class="lang-ru hidden">Работа с базами данных</li>
+                    <li class="lang-ru hidden">Дообучение моделей</li>
+                    <li class="lang-ru hidden">Prompt инжиниринг</li>
+                    <li class="lang-ru hidden">Развертывание</li>
+                    <li class="lang-ru hidden">Интеграция с другими сервисами</li>
+                </ul>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="section">
+                <h2>
+                    <span class="lang-en">🤝 Soft Skills</span>
+                    <span class="lang-ru hidden">🤝 Мягкие навыки</span>
+                </h2>
+                <ul>
+                    <li class="lang-en">Responsibility</li>
+                    <li class="lang-en">Dedication</li>
+                    <li class="lang-en">Adaptivity</li>
+                    <li class="lang-en">Fast learning</li>
+                    
+                    <li class="lang-ru hidden">Ответственность</li>
+                    <li class="lang-ru hidden">Преданность делу</li>
+                    <li class="lang-ru hidden">Адаптивность</li>
+                    <li class="lang-ru hidden">Быстрое обучение</li>
+                </ul>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="section">
+                <h2>
+                    <span class="lang-en">⚡ Tech Stack</span>
+                    <span class="lang-ru hidden">⚡ Технологический стек</span>
+                </h2>
+                
+                <div class="tech-grid">
+                    <div class="tech-category">
+                        <h4>
+                            <span class="lang-en">💻 Programming Languages</span>
+                            <span class="lang-ru hidden">💻 Языки программирования</span>
+                        </h4>
+                        <ul>
+                            <li class="lang-en">Python <span class="bracketed">(main)</span></li>
+                            <li class="lang-en">Javascript <span class="bracketed">(a bit)</span></li>
+                            <li class="lang-en">C# <span class="bracketed">(a bit)</span></li>
+                            <li class="lang-en">C++ <span class="bracketed">(a bit)</span></li>
+                            
+                            <li class="lang-ru hidden">Python <span class="bracketed">(основной)</span></li>
+                            <li class="lang-ru hidden">Javascript <span class="bracketed">(немного)</span></li>
+                            <li class="lang-ru hidden">C# <span class="bracketed">(немного)</span></li>
+                            <li class="lang-ru hidden">C++ <span class="bracketed">(немного)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-category">
+                        <h4>
+                            <span class="lang-en">🗄️ Databases</span>
+                            <span class="lang-ru hidden">🗄️ Базы данных</span>
+                        </h4>
+                        <ul>
+                            <li>PostgreSQL</li>
+                            <li class="lang-en">MongoDB <span class="bracketed">(for document oriented)</span></li>
+                            <li class="lang-en">ChromaDB <span class="bracketed">(production or testing)</span></li>
+                            <li class="lang-en">FAISS <span class="bracketed">(production)</span></li>
+                            
+                            <li class="lang-ru hidden">MongoDB <span class="bracketed">(для документоориентированных)</span></li>
+                            <li class="lang-ru hidden">ChromaDB <span class="bracketed">(продакшн или тестирование)</span></li>
+                            <li class="lang-ru hidden">FAISS <span class="bracketed">(продакшн)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-category">
+                        <h4>
+                            <span class="lang-en">🤖 Agents</span>
+                            <span class="lang-ru hidden">🤖 Агенты</span>
+                        </h4>
+                        <ul>
+                            <li class="lang-en">Langchain <span class="bracketed">(organizing pipelines)</span></li>
+                            <li class="lang-en">Langgraph <span class="bracketed">(creating agents)</span></li>
+                            <li class="lang-en">Langfuse <span class="bracketed">(agents monitoring)</span></li>
+                            <li class="lang-en">PydanticAI <span class="bracketed">(creating agents)</span></li>
+                            
+                            <li class="lang-ru hidden">Langchain <span class="bracketed">(организация пайплайнов)</span></li>
+                            <li class="lang-ru hidden">Langgraph <span class="bracketed">(создание агентов)</span></li>
+                            <li class="lang-ru hidden">Langfuse <span class="bracketed">(мониторинг агентов)</span></li>
+                            <li class="lang-ru hidden">PydanticAI <span class="bracketed">(создание агентов)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-category">
+                        <h4>
+                            <span class="lang-en">🧠 Deep Learning</span>
+                            <span class="lang-ru hidden">🧠 Глубокое обучение</span>
+                        </h4>
+                        <ul>
+                            <li class="lang-en">PyTorch <span class="bracketed">(fine tuning)</span></li>
+                            <li class="lang-en">Unsloth <span class="bracketed">(fine tuning)</span></li>
+                            <li class="lang-en">PEFT <span class="bracketed">(fine tuning)</span></li>
+                            <li class="lang-en">Transformers <span class="bracketed">(testing)</span></li>
+                            <li class="lang-en">Sentence transformers <span class="bracketed">(embedding)</span></li>
+                            
+                            <li class="lang-ru hidden">PyTorch <span class="bracketed">(дообучение)</span></li>
+                            <li class="lang-ru hidden">Unsloth <span class="bracketed">(дообучение)</span></li>
+                            <li class="lang-ru hidden">PEFT <span class="bracketed">(дообучение)</span></li>
+                            <li class="lang-ru hidden">Transformers <span class="bracketed">(тестирование)</span></li>
+                            <li class="lang-ru hidden">Sentence transformers <span class="bracketed">(эмбеддинги)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-category">
+                        <h4>
+                            <span class="lang-en">⚙️ Backend and DevOps</span>
+                            <span class="lang-ru hidden">⚙️ Backend и DevOps</span>
+                        </h4>
+                        <ul>
+                            <li class="lang-en">FastAPI <span class="bracketed">(REST API)</span></li>
+                            <li class="lang-en">Docker <span class="bracketed">(Images, compose, containers)</span></li>
+                            <li class="lang-en">Kubernetes <span class="bracketed">(practiced in minikube)</span></li>
+                            
+                            <li class="lang-ru hidden">FastAPI <span class="bracketed">(REST API)</span></li>
+                            <li class="lang-ru hidden">Docker <span class="bracketed">(образы, compose, контейнеры)</span></li>
+                            <li class="lang-ru hidden">Kubernetes <span class="bracketed">(практика в minikube)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-category">
+                        <h4>
+                            <span class="lang-en">🔧 MLOps</span>
+                            <span class="lang-ru hidden">🔧 MLOps</span>
+                        </h4>
+                        <ul>
+                            <li class="lang-en">TGI <span class="bracketed">(production)</span></li>
+                            <li class="lang-en">vLLM <span class="bracketed">(production)</span></li>
+                            <li class="lang-en">exllamav2 <span class="bracketed">(production)</span></li>
+                            <li class="lang-en">llama.cpp <span class="bracketed">(testing)</span></li>
+                            <li class="lang-en">ollama <span class="bracketed">(testing)</span></li>
+                            
+                            <li class="lang-ru hidden">TGI <span class="bracketed">(продакшн)</span></li>
+                            <li class="lang-ru hidden">vLLM <span class="bracketed">(продакшн)</span></li>
+                            <li class="lang-ru hidden">exllamav2 <span class="bracketed">(продакшн)</span></li>
+                            <li class="lang-ru hidden">llama.cpp <span class="bracketed">(тестирование)</span></li>
+                            <li class="lang-ru hidden">ollama <span class="bracketed">(тестирование)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-category">
+                        <h4>
+                            <span class="lang-en">🎯 Models</span>
+                            <span class="lang-ru hidden">🎯 Модели</span>
+                        </h4>
+                        <ul>
+                            <li class="lang-en">Every opensource text generation <span class="bracketed">(DeepSeek, qwen, mistral, llama, gemma...)</span></li>
+                            <li class="lang-en">Closed source text generation <span class="bracketed">(GPT, Claude, Grok, Gemini)</span></li>
+                            <li class="lang-en">text2text and classification <span class="bracketed">(DistilBERT, RoBERT, DeBERT, BART, T5, opus)</span></li>
+                            
+                            <li class="lang-ru hidden">Все opensource модели генерации текста <span class="bracketed">(DeepSeek, qwen, mistral, llama, gemma...)</span></li>
+                            <li class="lang-ru hidden">Закрытые модели генерации текста <span class="bracketed">(GPT, Claude, Grok, Gemini)</span></li>
+                            <li class="lang-ru hidden">text2text и классификация <span class="bracketed">(DistilBERT, RoBERT, DeBERT, BART, T5, opus)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-category">
+                        <h4>
+                            <span class="lang-en">☁️ Cloud</span>
+                            <span class="lang-ru hidden">☁️ Облачные сервисы</span>
+                        </h4>
+                        <ul>
+                            <li class="lang-en">Google cloud <span class="bracketed">(object storage, serverless containers, load balancers, sql clusters, firebase)</span></li>
+                            <li class="lang-en">Yandex cloud <span class="bracketed">(For Russia)</span></li>
+                            <li class="lang-en">Openrouter <span class="bracketed">(For fault tolerance and ease of use)</span></li>
+                            <li class="lang-en">DeepInfra, NovitaAI, Groq <span class="bracketed">(Direct cheaper use)</span></li>
+                            
+                            <li class="lang-ru hidden">Google cloud <span class="bracketed">(объектное хранилище, serverless контейнеры, балансировщики нагрузки, sql кластеры, firebase)</span></li>
+                            <li class="lang-ru hidden">Yandex cloud <span class="bracketed">(для России)</span></li>
+                            <li class="lang-ru hidden">Openrouter <span class="bracketed">(для отказоустойчивости и удобства использования)</span></li>
+                            <li class="lang-ru hidden">DeepInfra, NovitaAI, Groq <span class="bracketed">(прямое более дешевое использование)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-category">
+                        <h4>
+                            <span class="lang-en">🎭 Multimodality</span>
+                            <span class="lang-ru hidden">🎭 Мультимодальность</span>
+                        </h4>
+                        <ul>
+                            <li class="lang-en">TTS <span class="bracketed">(minimax audio API and kokoro)</span></li>
+                            <li class="lang-en">STT <span class="bracketed">(whisper)</span></li>
+                            <li class="lang-en">Image text to text <span class="bracketed">(llava, gemma, mistral small mostly for parsing)</span></li>
+                            <li class="lang-en">Video, audio <span class="bracketed">(gemini flash)</span></li>
+                            
+                            <li class="lang-ru hidden">TTS <span class="bracketed">(minimax audio API и kokoro)</span></li>
+                            <li class="lang-ru hidden">STT <span class="bracketed">(whisper)</span></li>
+                            <li class="lang-ru hidden">Изображение в текст <span class="bracketed">(llava, gemma, mistral small в основном для парсинга)</span></li>
+                            <li class="lang-ru hidden">Видео, аудио <span class="bracketed">(gemini flash)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-category">
+                        <h4>
+                            <span class="lang-en">💻 IDE</span>
+                            <span class="lang-ru hidden">💻 IDE</span>
+                        </h4>
+                        <ul>
+                            <li class="lang-en">Cursor <span class="bracketed">(Now use claude 4)</span></li>
+                            <li class="lang-en">Windsurf <span class="bracketed">(Sometime)</span></li>
+                            <li class="lang-en">Jupyter <span class="bracketed">(For fine tuning or edge cases)</span></li>
+                            
+                            <li class="lang-ru hidden">Cursor <span class="bracketed">(сейчас использую claude 4)</span></li>
+                            <li class="lang-ru hidden">Windsurf <span class="bracketed">(иногда)</span></li>
+                            <li class="lang-ru hidden">Jupyter <span class="bracketed">(для дообучения или крайних случаев)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-category">
+                        <h4>
+                            <span class="lang-en">🖥️ OS</span>
+                            <span class="lang-ru hidden">🖥️ ОС</span>
+                        </h4>
+                        <ul>
+                            <li class="lang-en">Linux <span class="bracketed">(for work and personal)</span></li>
+                            
+                            <li class="lang-ru hidden">Linux <span class="bracketed">(для работы и личного использования)</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- More -->
+            <div class="section">
+                <h2>
+                    <span class="lang-en">✨ More</span>
+                    <span class="lang-ru hidden">✨ Дополнительно</span>
+                </h2>
+                <ul>
+                    <li class="lang-en">Built AI visual novel game in browser <span class="bracketed"><a href="https://redcamptale.web.app" target="_blank">redcamptale.web.app</a></span></li>
+                    <li class="lang-en">Got 1st place in hackathon LLM coding challenge from sberbank <span class="bracketed">(agriculture case)</span></li>
+                    <li class="lang-en">Contributing to open source projects <span class="bracketed">(ollama, pydanticAI)</span></li>
+                    <li class="lang-en">Reading papers on arxiv <span class="bracketed">(recent was codeact)</span></li>
+                    <li class="lang-en">Monitoring news on X* <span class="bracketed">(Banned in Russia)</span>, Youtube channels <span class="bracketed">(fireship, bycloud)</span> and hugging face models <span class="bracketed">(trending)</span></li>
+                    <li class="lang-en">Use Claude 4 as helper for coding.</li>
+                    <li class="lang-en">Easily work in backend. Can work in frontend with the help of vibe coding</li>
+                    
+                    <li class="lang-ru hidden">Создал AI визуальную новеллу в браузере <span class="bracketed"><a href="https://redcamptale.web.app" target="_blank">redcamptale.web.app</a></span></li>
+                    <li class="lang-ru hidden">Занял 1-е место в хакатоне LLM coding challenge от сбербанка <span class="bracketed">(сельскохозяйственный кейс)</span></li>
+                    <li class="lang-ru hidden">Вношу вклад в open source проекты <span class="bracketed">(ollama, pydanticAI)</span></li>
+                    <li class="lang-ru hidden">Читаю статьи на arxiv <span class="bracketed">(недавно была codeact)</span></li>
+                    <li class="lang-ru hidden">Слежу за новостями в X* <span class="bracketed">(заблокирован в России)</span>, Youtube каналах <span class="bracketed">(fireship, bycloud)</span> и моделями hugging face <span class="bracketed">(трендовые)</span></li>
+                    <li class="lang-ru hidden">Использую Claude 4 как помощника для кодирования.</li>
+                    <li class="lang-ru hidden">Легко работаю в backend. Могу работать во frontend с помощью vibe coding</li>
+                </ul>
+            </div>
+
+            <!-- Links -->
+            <div class="section">
+                <h2>
+                    <span class="lang-en">🔗 Links</span>
+                    <span class="lang-ru hidden">🔗 Ссылки</span>
+                </h2>
+                <div class="links">
+                    <a href="https://github.com/vladlen32230" class="link-item" target="_blank">
+                        🐙 Github <span class="bracketed lang-en">(some pet projects)</span><span class="bracketed lang-ru hidden">(некоторые пет-проекты)</span>
+                    </a>
+                    <a href="https://www.kaggle.com/vladlen32230" class="link-item" target="_blank">
+                        📊 Kaggle <span class="bracketed lang-en">(participating in competitions, always top 10%)</span><span class="bracketed lang-ru hidden">(участие в соревнованиях, всегда топ 10%)</span>
+                    </a>
+                    <a href="https://huggingface.co/vladlen32230" class="link-item" target="_blank">
+                        🤗 Hugging Face <span class="bracketed lang-en">(Have merges and GGUF conversions)</span><span class="bracketed lang-ru hidden">(есть слияния и GGUF конвертации)</span>
+                    </a>
+                    <a href="https://leetcode.com/u/vladlen32230/" class="link-item" target="_blank">
+                        💻 LeetCode <span class="bracketed">(python, C#, SQL)</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contacts -->
+            <div class="section">
+                <h2>
+                    <span class="lang-en">📞 Contacts</span>
+                    <span class="lang-ru hidden">📞 Контакты</span>
+                </h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <strong>📱 Telegram</strong><br>
+                        @vladlen32230
+                    </div>
+                    <div class="contact-item">
+                        <strong>📧 Gmail</strong><br>
+                        vladlen32230@gmail.com
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Hide all language content
+            document.querySelectorAll('.lang-en, .lang-ru').forEach(element => {
+                element.classList.add('hidden');
+            });
+            
+            // Show selected language content
+            document.querySelectorAll(`.lang-${lang}`).forEach(element => {
+                element.classList.remove('hidden');
+            });
+        }
+
+        // Initialize with English
+        document.addEventListener('DOMContentLoaded', function() {
+            switchLanguage('en');
+        });
+    </script>
+</body>
+</html> 
