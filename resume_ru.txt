@@ -1,0 +1,138 @@
+Кудрин Владислав
+Инженер машинного обучения
+
+### Опыт работы:
+Petrel AI (B2B продукты) Алматы
+Февраль 2022 - Апрель 2025
+3 года 2 месяца
+
+## Стажер Python (4 месяца)
+- Рефакторинг кода
+- Исправление мелких ошибок
+- Переписывание устаревшего кода
+
+## ML Инженер (2 года 10 месяцев)
+Примеры:
+- Чат-бот (RAG + Chat agent) (~98% точности ответов) (llama + chromadb)
+- Нормализация текста (Few shot learning + RAG) (~88% правильного сопоставления и ~97% для key-value) (qwen + chromadb)
+- Ревьюер коммитов (API Integration + Code agent) (~0.83 F1)(claude)
+- AI-репетитор (TTS + STT + Image parsing + Интернет-поисковый агент) (без метрик) (claude + llava + whisper + minimax audio)
+- Обнаружение спама (BERT fine tuning) (~0.99 F1 для NSFW, ~0.82 F1 для рекламы) (debert)
+- HR Агент (API Integration + Document parsing + Scoring) (~0.71 F1 правильной классификации, в основном из-за человеческого фактора) (claude + llava)
+
+### Образование:
+Уральский федеральный университет (2021 - 2025)
+- Бакалавр компьютерных наук
+- Дополнительное образование в области ИИ
+
+### Языки:
+Русский (родной)
+Английский (свободный)
+
+### Hard skills:
+- Создание python микросервисов
+- Создание AI агентов, RAG пайплайнов
+- Работа с моделями генерации текста, text2text, классификации
+- Работа с базами данных
+- Fine tuning
+- Prompt engineering
+- Развертывание, работа с облаком
+- Интеграция с другими сервисами
+
+### Soft skills:
+- Ответственность
+- Преданность делу
+- Адаптивность
+- Быстрая обучаемость
+
+### Tech Stack:
+## Языки программирования:
+- Python (основной 10/10)
+- Javascript (немного)
+- C# (немного)
+- C++ (немного)
+
+## Базы данных:
+- Postgresql
+- MongoDB (для документ-ориентированных)
+- ChromaDB (production или тестирование)
+- FAISS (production)
+
+## Агенты:
+- Langchain (организация пайплайнов)
+- Langgraph (создание агентов)
+- Langfuse (мониторинг агентов)
+- PydanticAI (создание агентов)
+- SmolAgents (создание легких агентов)
+- LlamaIndex (интеграция RAG)
+
+## Глубокое обучение:
+- Pytorch (fine tuning)
+- Unsloth (fine tuning)
+- PEFT (fine tuning)
+- Transformers (тестирование)
+- Sentence transformers (embedding)
+
+## Backend и DevOps:
+- FastAPI (REST API)
+- Docker (Images, compose, containers)
+- Kubernetes (практиковался в minikube)
+- Git (github/gitlab)
+- CI/CD (github actions)
+
+## MLOps:
+- TGI (production)
+- vLLM (production)
+- exllamav2 (production)
+- llama.cpp (тестирование)
+- ollama (тестирование)
+
+## Модели
+- Все opensource модели генерации текста (DeepSeek, qwen, mistral, llama, gemma...)
+- Закрытые модели генерации текста (GPT, Claude, Grok, Gemini)
+- text2text и классификация (DistilBERT, RoBERT, DeBERT, BART, T5, opus)
+
+## Облако
+- Google cloud (object storage, serverless containers, load balancers, sql clusters, firebase)
+- Yandex cloud (Для России)
+- Openrouter (Для отказоустойчивости и простоты использования)
+- DeepInfra, NovitaAI, Groq (Прямое более дешевое использование)
+
+## IDE
+- Cursor (Сейчас использую claude 4)
+- Windsurf (Иногда)
+- Jupyter (Для fine tuning или крайних случаев)
+
+## OS:
+- Linux (для работы и личного использования)
+
+## Мультимодальность:
+- TTS (minimax audio API и kokoro)
+- STT (whisper)
+- Image text to text (llava, gemma, mistral small в основном для парсинга)
+- Video, audio (gemini flash)
+
+## Frontend:
+- React (немного)
+- Streamlit
+
+## Также:
+- Asyncio (python)
+
+### Больше:
+- Создал AI визуальную новеллу в браузере (redcamptale.web.app)
+- Занял 1-е место на хакатоне LLM coding challenge от сбербанка (кейс сельского хозяйства)
+- Участвую в open source проектах (ollama, pydanticAI)
+- Читаю статьи на arxiv (последняя была codeact)
+- Мониторю новости в X* (Запрещен в России), Youtube каналах (fireship, bycloud) и hugging face models (trending)
+- Использую Claude 4 как помощника для кодинга.
+
+### Ссылки:
+- Github: https://github.com/vladlen32230 (некоторые pet проекты)
+- Kaggle: https://www.kaggle.com/vladlen32230 (участвую в соревнованиях, всегда в топ 10%)
+- Hugging face: https://huggingface.co/vladlen32230 (Есть мержи и GGUF конверсии)
+- LeetCode: https://leetcode.com/u/vladlen32230/ (python, C#, SQL)
+
+### Контакты:
+- Telegram: @vladlen32230
+- Gmail: vladlen32230@gmail.com
