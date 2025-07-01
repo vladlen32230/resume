@@ -1,17 +1,21 @@
 Kudrin Vladislav
 Machine Learning Engineer
 
+RELOCATION: READY TO RELOCATE IN ANY CITY
+CITIZENSHIP: KAZAKHSTAN
+SALARY EXPECTATIONS: 3.200 USD (250.000 RUB) / month (net) full time
+
 ### Work experience:
 Petrel AI (B2B products) Almaty
 February 2022 - April 2025
 3 years 2 months
 
-## Python Intern (4 months)
+## 1 Python Intern (4 months)
 - Code refactoring
 - Small bug fixes
 - Legacy rewriting
 
-## ML Engineer (2 years 10 months)
+## 2 ML Engineer (2 years 10 months)
 Examples:
 - Chat bot (RAG + Chat agent) (~98% accuracy on answering right) (llama + chromadb)
 - Text normalization (Few shot learning + RAG) (~88% on right mapping and ~97% for key-value) (qwen + chromadb)
